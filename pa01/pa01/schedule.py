@@ -49,4 +49,30 @@ class Schedule():
         else:
             print("can't sort by "+str(field)+" yet")
             return self
- 
+
+    def title(self, phrase):
+        ''' title filters the courses by phrases in the course names'''
+        return Schedule([course for course in self.courses if phrase in course['name']])
+
+    def description(self, phrase):
+        ''' description filters the courses by phrase in the descriptions '''
+        return Schedule([course for course in self.courses if phrase in course['description']])
+    
+    '''
+        create our own filters
+    '''
+    def startTime(self, startT):
+        ''' startTime filters the courses by the given start time'''
+        return Schedule([course for course in self.courses if len(course['times']) != 0 and course['times'][0]['start'] == startT])
+
+    def listCourses(self):
+        ''' listCourses prints the first ten courses of self.courses'''
+        for i in range(0, 10):
+            print(self.courses[i], '\n')
+
+
+# if __name__ == "__main__":
+#     test = Schedule()
+#     test.load_courses()
+#     test = test.startTime(570)
+#     test.listCourses()
