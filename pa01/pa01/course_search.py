@@ -59,6 +59,9 @@ def topmenu():
         elif command in ['start time']:
             time = input("enter a start time:")
             schedule = schedule.startTime(int(time))
+        elif command in ['in', 'independent study']:
+            subject = input("enter a subject (eg: MATH, BIO):")
+            schedule = schedule.independent_study(subject)
         else:
             print('command',command,'is not supported')
             continue
