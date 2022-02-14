@@ -67,12 +67,19 @@ class Schedule():
 
     def listCourses(self):
         ''' listCourses prints the first ten courses of self.courses'''
-        for i in range(0, 10):
+        for i in range(len(self.courses)):
             print(self.courses[i], '\n')
 
-
+    def independent_study(self, subject):
+        '''List independent course of under a specific subject'''
+        # return Schedule(list({course for course in self.courses if course['subject'] == subject and course['independent_study'] == True}))
+        return Schedule([course for course in self.courses if course['subject'] == str(subject) and course['independent_study'] == True])
+    
 # if __name__ == "__main__":
-#     test = Schedule()
-#     test.load_courses()
-#     test = test.startTime(570)
-#     test.listCourses()
+    # test = Schedule()
+    # test.load_courses()
+    # test = test.enrolled(range(5,1000))
+    # test = test.lastname("Thomas")
+    # test = test.independent_study('MATH')
+    # test = test.startTime(570)
+    # test.listCourses()
