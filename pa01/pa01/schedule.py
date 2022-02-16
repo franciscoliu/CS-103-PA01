@@ -46,9 +46,8 @@ class Schedule():
     def sort(self,field):
         if field=='subject':
             return Schedule(sorted(self.courses, key= lambda course: course['subject']))
-        else:
-            print("can't sort by "+str(field)+" yet")
-            return self
+        print("can't sort by "+str(field)+" yet")
+        return self
 
     def title(self, phrase):
         ''' title filters the courses by phrases in the course names'''
@@ -57,15 +56,14 @@ class Schedule():
     def description(self, phrase):
         ''' description filters the courses by phrase in the descriptions '''
         return Schedule([course for course in self.courses if phrase in course['description']])
-    
     '''
         create our own filters
     '''
-    def startTime(self, startT):
+    def start_time(self, start_time):
         ''' startTime filters the courses by the given start time'''
-        return Schedule([course for course in self.courses if len(course['times']) != 0 and course['times'][0]['start'] == startT])
+        return Schedule([course for course in self.courses if len(course['times']) != 0 and course['times'][0]['start'] == start_time])
 
-    def listCourses(self):
+    def list_courses(self):
         ''' listCourses prints the first ten courses of self.courses'''
         for i in range(len(self.courses)):
             print(self.courses[i], '\n')
@@ -73,8 +71,7 @@ class Schedule():
     def independent_study(self, subject):
         '''List independent course of under a specific subject'''
         # return Schedule(list({course for course in self.courses if course['subject'] == subject and course['independent_study'] == True}))
-        return Schedule([course for course in self.courses if course['subject'] == str(subject) and course['independent_study'] == True])
-    
+        return Schedule([course for course in self.courses if course['subject'] == str(subject) and course['independent_study']])
 # if __name__ == "__main__":
     # test = Schedule()
     # test.load_courses()
@@ -83,3 +80,4 @@ class Schedule():
     # test = test.independent_study('MATH')
     # test = test.startTime(570)
     # test.listCourses()
+    
