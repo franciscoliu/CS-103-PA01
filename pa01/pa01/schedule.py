@@ -70,8 +70,6 @@ class Schedule():
 
     def independent_study(self, subject):
         '''List independent course of under a specific subject'''
-        print(subject)
-        # return Schedule(list({course for course in self.courses if course['subject'] == subject and course['independent_study'] == True}))
         return Schedule([course for course in self.courses if course['subject'] == str(subject) and course['independent_study']])
 # if __name__ == "__main__":
     # test = Schedule()
