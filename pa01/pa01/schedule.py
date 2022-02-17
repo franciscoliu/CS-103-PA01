@@ -18,7 +18,7 @@ class Schedule():
         # pylint:disable=line-too-long
         ''' load_courses reads the course data from the courses.json file'''
         print('getting archived regdata from file')
-        with open("G:\\Brandeis\\2022 Spring\\COSI 103\\pa\\CS-103-PA01\\pa01\\pa01\\courses20-21.json","r",encoding='utf-8') as jsonfile:
+        with open("courses20-21.json","r",encoding='utf-8') as jsonfile:
             courses = json.load(jsonfile)
         for course in courses:
             course['instructor'] = tuple(course['instructor'])
@@ -75,7 +75,7 @@ class Schedule():
             print(self.courses[i], '\n')
 
     def independent_study(self, subject):
-        '''List independent course of under a specific subject          '''
+        '''List independent course of under a specific subject'''
         # pylint:disable=line-too-long
         return Schedule([course for course in self.courses if course['subject'] == str(subject) and course['independent_study']])
 # if __name__ == "__main__":
