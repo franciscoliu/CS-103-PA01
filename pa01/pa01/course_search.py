@@ -19,7 +19,8 @@ instructor (filter by instructor)
 subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
-timeofday (filter by day and time, e.g. meets at 11 on Wed)
+start time (filter by start time of the course)
+independent stutdy (filter by the independent study course with the provided subjects)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -60,7 +61,7 @@ def topmenu():
         elif command in ['d','description']:
             temp = input("enter a description:")
             schedule = schedule.description(temp)
-        elif command in ['start time']:
+        elif command in ['st','start time']:
             time = input("enter a start time:")
             schedule = schedule.start_time(int(time))
         elif command in ['in', 'independent study']:
