@@ -28,6 +28,10 @@ def topmenu():
     '''
     topmenu is the top level loop of the course search app
     '''
+    # pylint:disable=too-many-branches
+    # pylint:disable=no-else-return
+    # pylint:disable=global-statement
+    # pylint:disable=invalid-name
     global schedule
     while True:
         command = input(">> (h for help) ")

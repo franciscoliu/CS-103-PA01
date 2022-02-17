@@ -9,6 +9,7 @@ class Schedule():
     '''
     Schedule represent a list of Brandeis classes with operations for filtering
     '''
+    # pylint:disable=pointless-string-statement
     def __init__(self,courses=()):
         ''' courses is a tuple of the courses being offered '''
         self.courses = courses
@@ -44,6 +45,7 @@ class Schedule():
         return Schedule([course for course in self.courses if course['subject'] in subjects])
 
     def sort(self,field):
+        # pylint:disable=missing-function-docstring
         if field=='subject':
             return Schedule(sorted(self.courses, key= lambda course: course['subject']))
         print("can't sort by "+str(field)+" yet")
@@ -56,27 +58,30 @@ class Schedule():
     def description(self, phrase):
         ''' description filters the courses by phrase in the descriptions '''
         return Schedule([course for course in self.courses if phrase in course['description']])
+
     '''
         create our own filters
     '''
     def start_time(self, start_time):
         ''' startTime filters the courses by the given start time'''
+        # pylint:disable=line-too-long
         return Schedule([course for course in self.courses if len(course['times']) != 0 and course['times'][0]['start'] == start_time])
 
     def list_courses(self):
         ''' listCourses prints the first ten courses of self.courses'''
-        for i in enumerate(len(self.courses)):
+        for i in range(len(self.courses)):
             print(self.courses[i], '\n')
 
     def independent_study(self, subject):
         '''List independent course of under a specific subject'''
+        # pylint:disable=line-too-long
         return Schedule([course for course in self.courses if course['subject'] == str(subject) and course['independent_study']])
 # if __name__ == "__main__":
-    # test = Schedule()
-    # test.load_courses()
-    # test = test.enrolled(range(5,1000))
-    # test = test.lastname("Thomas")
-    # test = test.independent_study('MATH')
-    # test = test.startTime(570)
-    # test.listCourses()
+#     test = Schedule()
+#     test.load_courses()
+#     test = test.enrolled(range(5,1000))
+#     test = test.lastname("Thomas")
+#     test = test.independent_study('MATH')
+#     test = test.start_time(570)
+#     test.list_courses()
     
