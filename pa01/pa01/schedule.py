@@ -81,7 +81,7 @@ class Schedule():
 # if __name__ == "__main__":
 #     test = Schedule()
 #     test.load_courses()
-#     test = test.title("Python")
+#     test = test.title("Java")
 #     test = test.enrolled(range(5,1000))
 #     test = test.lastname("Thomas")
 #     test = test.independent_study('MATH')
