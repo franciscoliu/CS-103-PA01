@@ -67,6 +67,8 @@ def topmenu():
         elif command in ['in', 'independent study']:
             subject = input("enter a subject (eg: MATH, BIO):")
             schedule = schedule.independent_study(subject)
+        elif command in ['s','signature']:
+            schedule = schedule.sig()
         else:
             print('command',command,'is not supported')
             continue

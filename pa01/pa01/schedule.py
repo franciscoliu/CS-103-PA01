@@ -78,6 +78,10 @@ class Schedule():
         '''List independent course of under a specific subject '''
         # pylint:disable=line-too-long
         return Schedule([course for course in self.courses if course['subject'] == str(subject) and course['independent_study']])
+
+    def sig(self):
+        '''list first ten courses that requires a signature for enrollment'''
+        return Schedule([course for course in self.courses if course["details"] in "Instructor's Signature Required.\nSee Course Catalog for Special Notes."])
 # if __name__ == "__main__":
 #     test = Schedule()
 #     test.load_courses()
