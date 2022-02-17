@@ -69,6 +69,7 @@ class Schedule():
 
     def list_courses(self):
         ''' listCourses prints the first ten courses of self.courses'''
+        # pylint:disable=consider-using-enumerate
         for i in range(len(self.courses)):
             print(self.courses[i], '\n')
 
