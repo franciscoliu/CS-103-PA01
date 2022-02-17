@@ -65,7 +65,7 @@ class Schedule():
 
     def list_courses(self):
         ''' listCourses prints the first ten courses of self.courses'''
-        for i in range(len(self.courses)):
+        for i in enumerate(len(self.courses)):
             print(self.courses[i], '\n')
 
     def independent_study(self, subject):
