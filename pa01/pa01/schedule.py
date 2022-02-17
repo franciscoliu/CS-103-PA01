@@ -54,7 +54,7 @@ class Schedule():
 
     def title(self, phrase):
         ''' title filters the courses by phrases in the course names'''
-        return Schedule([c for c in self.courses if phrase in c['name']])
+        return Schedule([course for course in self.courses if phrase in course['name']])
 
     def description(self, phrase):
         ''' description filters the courses by phrase in the descriptions '''
@@ -81,6 +81,7 @@ class Schedule():
 # if __name__ == "__main__":
 #     test = Schedule()
 #     test.load_courses()
+#     test = test.title("Python")
 #     test = test.enrolled(range(5,1000))
 #     test = test.lastname("Thomas")
 #     test = test.independent_study('MATH')
