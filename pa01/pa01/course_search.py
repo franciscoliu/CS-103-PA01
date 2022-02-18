@@ -30,7 +30,6 @@ def topmenu():
     topmenu is the top level loop of the course search app
     '''
     # pylint:disable=too-many-branches
-    # pylint:disable=no-else-return
     # pylint:disable=global-statement
     # pylint:disable=invalid-name
     global schedule
@@ -38,15 +37,15 @@ def topmenu():
         command = input(">> (h for help) ")
         if command=='quit':
             return
-        elif command in ['h','help']:
+        if command in ['h','help']:
             print(TOP_LEVEL_MENU)
             print('-'*40+'\n\n')
             continue
-        elif command in ['r','reset']:
+        if command in ['r','reset']:
             schedule.load_courses()
             schedule = schedule.enrolled(range(5,1000))
             continue
-        elif command in ['t', 'term']:
+        if command in ['t', 'term']:
             term = input("enter a term:"+str(terms)+":")
             schedule = schedule.term([term]).sort('subject')
         elif command in ['s','subject']:
@@ -69,6 +68,9 @@ def topmenu():
             schedule = schedule.independent_study(subject)
         elif command in ['s','signature']:
             schedule = schedule.sig()
+        elif command in ['mt', 'meeting time']:
+            subject = input('enter a day in a week (m/t/w/th/f): ')
+            schedule = schedule.days_in_week(subject)
         else:
             print('command',command,'is not supported')
             continue

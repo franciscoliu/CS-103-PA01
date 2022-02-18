@@ -81,7 +81,14 @@ class Schedule():
 
     def sig(self):
         '''list first ten courses that requires a signature for enrollment'''
-        return Schedule([course for course in self.courses if course["details"] in "Instructor's Signature Required.\nSee Course Catalog for Special Notes."])
+        return Schedule([course for course in self.courses if course["details"] in
+        "Instructor's Signature Required.\nSee Course Catalog for Special Notes."])
+
+    def days_in_week(self, day):
+        ''' list first ten courses that have meetings in specific day'''
+        return Schedule([course for course in self.courses if len(course['times']) != 0
+        and day in course['times'][0]['days']])
+
 # if __name__ == "__main__":
 #     test = Schedule()
 #     test.load_courses()
